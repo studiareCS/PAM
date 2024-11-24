@@ -1,1 +1,1 @@
-# PAM
+# Project overview and instructions
