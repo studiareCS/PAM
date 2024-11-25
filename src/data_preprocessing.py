@@ -1,4 +1,5 @@
 import numpy as np
+from tensorflow.keras.utils import to_categorical
 
 def preprocess_data_for_mlp(x_train, x_test):
     """Realiza el preprocesamiento para la MLP (aplanado de imágenes)."""
@@ -21,3 +22,11 @@ def preprocess_data_for_cnn(x_train, x_test):
     x_test_cnn = np.expand_dims(x_test_cnn, axis=-1)
 
     return x_train_cnn, x_test_cnn
+
+def preprocess_labels(y_train, y_test):
+    """Realiza el preprocesamiento de las etiquetas (one-hot encoding)."""
+    # Convertir las etiquetas a one-hot encoding
+    y_train_one_hot = to_categorical(y_train, num_classes=10)
+    y_test_one_hot = to_categorical(y_test, num_classes=10)
+
+    return y_train_one_hot, y_test_one_hot
