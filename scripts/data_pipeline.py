@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import os
+from src.data_preprocessing import *
 
 def download_raw_data():
     """Descarga MNIST original y lo guarda en /data/raw en formato raw"""
@@ -49,5 +50,13 @@ def run_data_pipeline():
     # Descargar y guardar los datos de MNIST en formato raw
     download_raw_data()
 
-    # Cargar los datos raw de MNIST 
+    # Cargar los datos raw de MNIST
     (x_train, y_train), (x_test, y_test) = load_data()
+
+    # Preprocesar los datos para una MLP
+    x_train_mlp, x_test_mlp = preprocess_data_for_mlp(x_train, x_test)
+    print("Datos preprocesados para MLP listos.")
+
+    # Preprocesar los datos para una CNN
+    x_train_cnn, x_test_cnn = preprocess_data_for_cnn(x_train, x_test)
+    print("Datos preprocesados para CNN listos.")
