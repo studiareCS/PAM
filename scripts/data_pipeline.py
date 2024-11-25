@@ -48,3 +48,6 @@ def run_data_pipeline():
     """Organiza la descarga, carga y procesamiento de los datos de MNIST"""
     # Descargar y guardar los datos de MNIST en formato raw
     download_raw_data()
+
+    # Cargar los datos raw de MNIST 
+    (x_train, y_train), (x_test, y_test) = load_data()
