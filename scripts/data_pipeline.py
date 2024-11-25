@@ -60,6 +60,14 @@ def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_t
     train_labels_file = os.path.join(preprocessed_dir, 'train_labels.npy')
     test_labels_file = os.path.join(preprocessed_dir, 'test_labels.npy')
 
+    # Guardar las imagenes y etiquetas preprocesadas
+    np.save(train_mlp_file, x_train_mlp)
+    np.save(test_mlp_file, x_test_mlp)
+    np.save(train_cnn_file, x_train_cnn)
+    np.save(test_cnn_file, x_test_cnn)
+    np.save(train_labels_file, y_train)
+    np.save(test_labels_file, y_test)
+
 def run_data_pipeline():
     """Organiza la descarga, carga y procesamiento de los datos sde MNIST"""
     # Descargar y guardar los datos de MNIST en formato raw
@@ -79,3 +87,8 @@ def run_data_pipeline():
     # Preprocesar las etiquetas (formato one-hot encoding)
     y_train_one_hot, y_test_one_hot = preprocess_labels(y_train, y_test)
     print("Etiquetas preprocesadas listas.")
+
+    # Guardar los datos preprocesados
+    save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_train_one_hot, y_test_one_hot)
+    print("Imagenes y etiquetas preprocesadas guardadas en /data/preprocessed")
+
