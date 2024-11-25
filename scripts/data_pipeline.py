@@ -92,3 +92,6 @@ def run_data_pipeline():
     save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_train_one_hot, y_test_one_hot)
     print("Imagenes y etiquetas preprocesadas guardadas en /data/preprocessed")
 
+if __name__ == '__main__':
+    # Ejecutar el data_pipeline
+    run_data_pipeline()
