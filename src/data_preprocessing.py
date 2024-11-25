@@ -7,3 +7,9 @@ def preprocess_data_for_mlp(x_train, x_test):
     x_test_mlp = x_test.reshape(x_test.shape[0], -1).astype('float32') / 255.0
 
     return x_train_mlp, x_test_mlp
+
+def preprocess_data_for_cnn(x_train, x_test):
+    """Realiza el preprocesamiento para la CNN (mantener imágenes 2D y normalizar)."""
+    # Normalizar las imágenes (su valor de cada pixel va de 0 a 255) entre 0 y 1
+    x_train_cnn = x_train.astype('float32') / 255.0
+    x_test_cnn = x_test.astype('float32') / 255.0
