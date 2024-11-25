@@ -14,8 +14,8 @@ def preprocess_data_for_cnn(x_train, x_test):
     x_train_cnn = x_train.astype('float32') / 255.0
     x_test_cnn = x_test.astype('float32') / 255.0
 
-    # Comprobacion de que las imagenes estén en el formato adecuado para las CNN (28x28x1)
-    # (28, 28) para las imágenes
+    # Adicion de una dimension a cada imagen estén en el formato adecuado para las CNN (28x28x1)
+    # (28, 28) para las imagenes
     # 1 para el canal de color (escala de grises)
     x_train_cnn = np.expand_dims(x_train_cnn, axis=-1)
     x_test_cnn = np.expand_dims(x_test_cnn, axis=-1)
