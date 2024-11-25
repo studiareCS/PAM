@@ -45,6 +45,11 @@ def load_data():
     print("Datos MNIST cargados (y procesados) desde /data/raw")
     return (train_images, train_labels), (test_images, test_labels)
 
+def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn):
+    """Guarda los datos preprocesados en /data/preprocessed"""
+    preprocessed_dir = os.path.join('.', 'data', 'preprocessed')
+    os.makedirs(preprocessed_dir, exist_ok=True)
+
 def run_data_pipeline():
     """Organiza la descarga, carga y procesamiento de los datos de MNIST"""
     # Descargar y guardar los datos de MNIST en formato raw
