@@ -10,3 +10,9 @@ def download_raw_data():
     # Directorio para guardar MNIST y comprobacion de su existencia
     output_dir = './data/raw'
     os.makedirs(output_dir, exist_ok=True)
+
+    # Rutas de guardado para las imágenes y etiquetas de entrenamiento y testeo 
+    train_images_file = os.path.join(output_dir, 'train_images.raw')
+    train_labels_file = os.path.join(output_dir, 'train_labels.raw')
+    test_images_file = os.path.join(output_dir, 'test_images.raw')
+    test_labels_file = os.path.join(output_dir, 'test_labels.raw')
