@@ -22,3 +22,14 @@ def download_raw_data():
     y_train.tofile(train_labels_file)
     x_test.tofile(test_images_file)
     y_test.tofile(test_labels_file)
+
+    print("Imagenes y etiquetas de MNIST guardados (formato raw) en /data/raw")
+
+def load_data():
+    """Carga los datos de MNIST en formato raw"""
+    raw_dir = os.path.join('.', 'data', 'raw')
+
+    train_images_file = os.path.join(raw_dir, 'train_images.raw')
+    train_labels_file = os.path.join(raw_dir, 'train_labels.raw')
+    test_images_file = os.path.join(raw_dir, 'test_images.raw')
+    test_labels_file = os.path.join(raw_dir, 'test_labels.raw')
