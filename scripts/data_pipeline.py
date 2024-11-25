@@ -8,7 +8,7 @@ def download_raw_data():
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
     # Directorio para guardar MNIST y comprobacion de su existencia
-    output_dir = './data/raw'
+    output_dir = os.path.join('.', 'data', 'raw')
     os.makedirs(output_dir, exist_ok=True)
 
     # Rutas de guardado para las imagenes y etiquetas de entrenamiento y testeo 
