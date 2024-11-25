@@ -46,8 +46,8 @@ def load_data():
     return (train_images, train_labels), (test_images, test_labels)
 
 def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_train, y_test):
-    """Guarda los datos preprocesados en /data/preprocessed"""
-    preprocessed_dir = os.path.join('.', 'data', 'preprocessed')
+    """Guarda los datos preprocesados en /data/processed"""
+    preprocessed_dir = os.path.join('.', 'data', 'processed')
     os.makedirs(preprocessed_dir, exist_ok=True)
 
     # Rutas de guardado para las imagenes preprocesadas
@@ -90,7 +90,7 @@ def run_data_pipeline():
 
     # Guardar los datos preprocesados
     save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_train_one_hot, y_test_one_hot)
-    print("Imagenes y etiquetas preprocesadas guardadas en /data/preprocessed")
+    print("Imagenes y etiquetas preprocesadas guardadas en /data/processed")
 
 if __name__ == '__main__':
     # Ejecutar el data_pipeline
