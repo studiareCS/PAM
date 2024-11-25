@@ -50,8 +50,14 @@ def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn):
     preprocessed_dir = os.path.join('.', 'data', 'preprocessed')
     os.makedirs(preprocessed_dir, exist_ok=True)
 
+    # Rutas de guardado para las imagenes preprocesadas
+    train_mlp_file = os.path.join(preprocessed_dir, 'train_mlp.npy')
+    test_mlp_file = os.path.join(preprocessed_dir, 'test_mlp.npy')
+    train_cnn_file = os.path.join(preprocessed_dir, 'train_cnn.npy')
+    test_cnn_file = os.path.join(preprocessed_dir, 'test_cnn.npy')
+
 def run_data_pipeline():
-    """Organiza la descarga, carga y procesamiento de los datos de MNIST"""
+    """Organiza la descarga, carga y procesamiento de los datos sde MNIST"""
     # Descargar y guardar los datos de MNIST en formato raw
     download_raw_data()
 
