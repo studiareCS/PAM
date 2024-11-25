@@ -40,3 +40,6 @@ def load_data():
     train_labels = np.fromfile(train_labels_file, dtype=np.uint8)
     test_images = np.fromfile(test_images_file, dtype=np.uint8).reshape(-1, 28, 28)
     test_labels = np.fromfile(test_labels_file, dtype=np.uint8)
+
+    print("Datos MNIST cargados (y procesados) desde /data/raw")
+    return (train_images, train_labels), (test_images, test_labels)
