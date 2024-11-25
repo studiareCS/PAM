@@ -13,3 +13,11 @@ def preprocess_data_for_cnn(x_train, x_test):
     # Normalizar las imágenes (su valor de cada pixel va de 0 a 255) entre 0 y 1
     x_train_cnn = x_train.astype('float32') / 255.0
     x_test_cnn = x_test.astype('float32') / 255.0
+
+    # Comprobacion de que las imagenes estén en el formato adecuado para las CNN (28x28x1)
+    # (28, 28) para las imágenes
+    # 1 para el canal de color (escala de grises)
+    x_train_cnn = np.expand_dims(x_train_cnn, axis=-1)
+    x_test_cnn = np.expand_dims(x_test_cnn, axis=-1)
+
+    return x_train_cnn, x_test_cnn
