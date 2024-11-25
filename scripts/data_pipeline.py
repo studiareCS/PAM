@@ -1,1 +1,5 @@
-# Script for data pipeline management
+import tensorflow as tf
+import numpy as np
+import os
+
+
