@@ -1,1 +1,7 @@
-# Git ignore file
+# Ignorar __pycache__ y *.pyc
+__pycache__/
+*.pyc
+
+# Ignorar archivos raw y procesados
+*.raw
+*.npy
