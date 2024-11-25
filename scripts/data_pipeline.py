@@ -11,8 +11,14 @@ def download_raw_data():
     output_dir = './data/raw'
     os.makedirs(output_dir, exist_ok=True)
 
-    # Rutas de guardado para las imágenes y etiquetas de entrenamiento y testeo 
+    # Rutas de guardado para las imagenes y etiquetas de entrenamiento y testeo 
     train_images_file = os.path.join(output_dir, 'train_images.raw')
     train_labels_file = os.path.join(output_dir, 'train_labels.raw')
     test_images_file = os.path.join(output_dir, 'test_images.raw')
     test_labels_file = os.path.join(output_dir, 'test_labels.raw')
+
+    # Guardado de las imagenes y etiquetas en formato raw
+    x_train.tofile(train_images_file)
+    y_train.tofile(train_labels_file)
+    x_test.tofile(test_images_file)
+    y_test.tofile(test_labels_file)
