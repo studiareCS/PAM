@@ -45,7 +45,7 @@ def load_data():
     print("Datos MNIST cargados (y procesados) desde /data/raw")
     return (train_images, train_labels), (test_images, test_labels)
 
-def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn):
+def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn, y_train, y_test):
     """Guarda los datos preprocesados en /data/preprocessed"""
     preprocessed_dir = os.path.join('.', 'data', 'preprocessed')
     os.makedirs(preprocessed_dir, exist_ok=True)
@@ -56,7 +56,9 @@ def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn):
     train_cnn_file = os.path.join(preprocessed_dir, 'train_cnn.npy')
     test_cnn_file = os.path.join(preprocessed_dir, 'test_cnn.npy')
 
-
+    # Rutas de guardado para las etiquetas preprocesadas
+    train_labels_file = os.path.join(preprocessed_dir, 'train_labels.npy')
+    test_labels_file = os.path.join(preprocessed_dir, 'test_labels.npy')
 
 def run_data_pipeline():
     """Organiza la descarga, carga y procesamiento de los datos sde MNIST"""
