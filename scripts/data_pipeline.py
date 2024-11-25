@@ -56,6 +56,8 @@ def save_preprocessed_data(x_train_mlp, x_test_mlp, x_train_cnn, x_test_cnn):
     train_cnn_file = os.path.join(preprocessed_dir, 'train_cnn.npy')
     test_cnn_file = os.path.join(preprocessed_dir, 'test_cnn.npy')
 
+
+
 def run_data_pipeline():
     """Organiza la descarga, carga y procesamiento de los datos sde MNIST"""
     # Descargar y guardar los datos de MNIST en formato raw
@@ -71,3 +73,7 @@ def run_data_pipeline():
     # Preprocesar los datos para una CNN
     x_train_cnn, x_test_cnn = preprocess_data_for_cnn(x_train, x_test)
     print("Datos preprocesados para CNN listos.")
+
+    # Preprocesar las etiquetas (formato one-hot encoding)
+    y_train_one_hot, y_test_one_hot = preprocess_labels(y_train, y_test)
+    print("Etiquetas preprocesadas listas.")
