@@ -7,6 +7,6 @@ def download_raw_data():
     mnist = tf.keras.datasets.mnist
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
-    
-    
-    
+    # Directorio para guardar MNIST y comprobacion de su existencia
+    output_dir = './data/raw'
+    os.makedirs(output_dir, exist_ok=True)
