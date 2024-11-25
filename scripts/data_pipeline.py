@@ -43,3 +43,8 @@ def load_data():
 
     print("Datos MNIST cargados (y procesados) desde /data/raw")
     return (train_images, train_labels), (test_images, test_labels)
+
+def run_data_pipeline():
+    """Organiza la descarga, carga y procesamiento de los datos de MNIST"""
+    # Descargar y guardar los datos de MNIST en formato raw
+    download_raw_data()
