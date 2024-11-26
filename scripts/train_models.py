@@ -20,3 +20,8 @@ def load_processed_data(model_type):
     y_test = np.load(os.path.join(processed_dir, 'test_labels.npy'))
 
     return x_train, x_test, y_train, y_test
+
+def train_mlp():
+    """Entrena un modelo de red neuronal multicapa (MLP) para MNIST"""
+    # Cargar los datos preprocesados para la MLP
+    x_train, x_test, y_train, y_test = load_processed_data('mlp')
