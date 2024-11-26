@@ -25,3 +25,11 @@ def train_mlp():
     """Entrena un modelo de red neuronal multicapa (MLP) para MNIST"""
     # Cargar los datos preprocesados para la MLP
     x_train, x_test, y_train, y_test = load_processed_data('mlp')
+
+    # Crear y compilar el modelo MLP
+    mlp_model = build_mlp_model()
+    mlp_model.compile(
+        optimizer=Adam(learning_rate=0.001), 
+        loss='categorical_crossentropy', 
+        metrics=['accuracy']
+    )
