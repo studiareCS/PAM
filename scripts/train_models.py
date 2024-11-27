@@ -54,3 +54,11 @@ def train_cnn():
         loss='categorical_crossentropy', 
         metrics=['accuracy']
     )
+
+    # Entrenar el modelo CNN
+    cnn_model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_test, y_test))
+
+    # Guardar el modelo entrenado
+    os.makedirs(os.path.join('.', 'models'), exist_ok=True)
+    cnn_model.save(os.path.join('.', 'models', 'cnn_model.h5'))
+    print("Modelo CNN entrenado y guardado.")
