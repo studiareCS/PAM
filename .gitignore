@@ -5,3 +5,6 @@ __pycache__/
 # Ignorar archivos raw y procesados
 *.raw
 *.npy
+
+# Ignorar archivos h5
+*.h5
