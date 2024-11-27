@@ -18,6 +18,7 @@ PAM/
 ├── README.md                       # Documentación del proyecto
 ├── requirements.txt                # Dependencias del proyecto
 ├── .gitignore                      # Archivos o carpetas a ignorar
+```
 ## Instalación
 ## Uso
 ## Tecnologías utilizadas
