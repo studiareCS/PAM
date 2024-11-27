@@ -62,3 +62,10 @@ def train_cnn():
     os.makedirs(os.path.join('.', 'models'), exist_ok=True)
     cnn_model.save(os.path.join('.', 'models', 'cnn_model.h5'))
     print("Modelo CNN entrenado y guardado.")
+
+if __name__ == '__main__':
+    # Con los datos preprocesados de /data/preprocessed:
+    # Se entrena y guarda el modelo MLP
+    train_mlp()
+    # Se entrena y guarda el modelo CNN
+    train_cnn()
