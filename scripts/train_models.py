@@ -41,3 +41,9 @@ def train_mlp():
     os.makedirs(os.path.join('.', 'models'), exist_ok=True)
     mlp_model.save(os.path.join('.', 'models', 'mlp_model.h5'))
     print("Modelo MLP entrenado y guardado.")
+
+def train_cnn():
+    """Entrena un modelo de red neuronal convolucional (CNN) para MNIST y lo guarda"""
+    # Cargar los datos preprocesados para la CNN
+    x_train, x_test, y_train, y_test = load_processed_data('cnn')
+    
