@@ -46,4 +46,11 @@ def train_cnn():
     """Entrena un modelo de red neuronal convolucional (CNN) para MNIST y lo guarda"""
     # Cargar los datos preprocesados para la CNN
     x_train, x_test, y_train, y_test = load_processed_data('cnn')
-    
+
+    # Crear y compilar el modelo CNN
+    cnn_model = build_cnn_model()
+    cnn_model.compile(
+        optimizer=Adam(learning_rate=0.001), 
+        loss='categorical_crossentropy', 
+        metrics=['accuracy']
+    )
