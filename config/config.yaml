@@ -1,1 +1,13 @@
-# Configuration parameters
+# Configuracion del entrenamiento de los modelos
+training:
+  epochs: 10
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: 'adam'
+  loss: 'categorical_crossentropy'
+  metrics: ['accuracy']
+
+# Funciones de activacion
+activation_functions:
+  - relu: 'relu'
+  - softmax: 'softmax'
