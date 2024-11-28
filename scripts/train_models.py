@@ -2,6 +2,19 @@ import os
 import numpy as np
 from tensorflow.keras.optimizers import Adam
 from src.models import build_mlp_model, build_cnn_model
+import yaml
+
+# Abrir el archivo de configuracion
+with open(os.path.join('.', 'config', 'config.yaml'), 'r') as file:
+    config = yaml.safe_load(file)
+
+# Variables globales
+EPOCHS = config['training']['epochs']
+BATCH_SIZE = config['training']['batch_size']
+LEARNING_RATE = config['training']['learning_rate']
+OPTIMIZER = config['training']['optimizer']
+LOSS = config['training']['loss']
+METRICS = config['training']['metrics']
 
 def load_processed_data(model_type):
     """Carga los datos procesados de MNIST"""
@@ -29,13 +42,13 @@ def train_mlp():
     # Crear y compilar el modelo MLP
     mlp_model = build_mlp_model()
     mlp_model.compile(
-        optimizer=Adam(learning_rate=0.001), 
-        loss='categorical_crossentropy', 
-        metrics=['accuracy']
+        optimizer=Adam(learning_rate=LEARNING_RATE), 
+        loss=LOSS, 
+        metrics=METRICS
     )
 
     # Entrenar el modelo MLP
-    mlp_model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_test, y_test))
+    mlp_model.fit(x_train, y_train, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_data=(x_test, y_test))
 
     # Guardar el modelo entrenado
     os.makedirs(os.path.join('.', 'models'), exist_ok=True)
@@ -50,13 +63,13 @@ def train_cnn():
     # Crear y compilar el modelo CNN
     cnn_model = build_cnn_model()
     cnn_model.compile(
-        optimizer=Adam(learning_rate=0.001), 
-        loss='categorical_crossentropy', 
-        metrics=['accuracy']
+        optimizer=Adam(learning_rate=LEARNING_RATE), 
+        loss=LOSS, 
+        metrics=METRICS
     )
 
     # Entrenar el modelo CNN
-    cnn_model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_test, y_test))
+    cnn_model.fit(x_train, y_train, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_data=(x_test, y_test))
 
     # Guardar el modelo entrenado
     os.makedirs(os.path.join('.', 'models'), exist_ok=True)
@@ -69,3 +82,6 @@ if __name__ == '__main__':
     train_mlp()
     # Se entrena y guarda el modelo CNN
     train_cnn()
+
+# Cerrar el archivo de configuracion
+file.close()
