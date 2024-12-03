@@ -35,3 +35,21 @@ document.getElementById('clearBtn').addEventListener('click', () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);  // Rellenar de blanco
     document.getElementById('predictionResult').textContent = '';
 });
+
+// Enviar la imagen al backend para la predicción
+document.getElementById('predictBtn').addEventListener('click', () => {
+    const imageData = canvas.toDataURL('image/png');
+
+    fetch('/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ image: imageData.split(',')[1] })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('predictionResult').textContent = `Predicción: ${data.prediction}`;
+    })
+    .catch(error => console.error('Error al realizar la predicción:', error));
+});
