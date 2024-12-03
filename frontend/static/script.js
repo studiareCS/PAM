@@ -29,3 +29,9 @@ canvas.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
+// Limpiar el lienzo
+document.getElementById('clearBtn').addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);  // Rellenar de blanco
+    document.getElementById('predictionResult').textContent = '';
+});
