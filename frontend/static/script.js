@@ -39,17 +39,37 @@ document.getElementById('clearBtn').addEventListener('click', () => {
 // Enviar la imagen al backend para la predicción
 document.getElementById('predictBtn').addEventListener('click', () => {
     const imageData = canvas.toDataURL('image/png');
+    
+    // Convertir la cadena base64 a un objeto Blob (archivo)
+    const byteCharacters = atob(imageData.split(',')[1]);  // Decodificar la base64 a bytes
+    const byteArray = new Uint8Array(byteCharacters.length);
 
+    // Convertir los bytes en un array de bytes
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteArray[i] = byteCharacters.charCodeAt(i);
+    }
+
+    // Crear un Blob con la imagen (en formato PNG)
+    const blob = new Blob([byteArray], { type: 'image/png' });
+
+    // Crear un objeto FormData para enviar el archivo
+    const formData = new FormData();
+    formData.append('file', blob, 'image.png');  // 'file' es el nombre del campo que espera el backend
+
+    // Enviar la imagen al backend para la predicción
     fetch('/predict', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ image: imageData.split(',')[1] })
+        body: formData  // Usar FormData para enviar el archivo
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById('predictionResult').textContent = `Predicción: ${data.prediction}`;
+        // Verifica si ambos valores de predicción están presentes
+        if (data.cnn_prediction !== undefined && data.mlp_prediction !== undefined) {
+            document.getElementById('predictionResult').textContent = 
+                `Predicción CNN: ${data.cnn_prediction}, Predicción MLP: ${data.mlp_prediction}`;
+        } else {
+            document.getElementById('predictionResult').textContent = 'Error en la predicción.';
+        }
     })
     .catch(error => console.error('Error al realizar la predicción:', error));
 });
