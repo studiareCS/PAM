@@ -19,3 +19,13 @@ mlp_model = tf.keras.models.load_model(mlp_model_path)
 def index():
     """Renderiza la página principal."""
     return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    """Recibe una imagen dibujada por el usuario y realiza predicciones."""
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+    
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({'error': 'No file selected'}), 400
