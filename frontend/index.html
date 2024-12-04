@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Dígitos MNIST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Predicción de Dígitos MNIST</h1>
+    <canvas id="canvas" width="280" height="280"></canvas>
+    <div>
+        <button id="predictBtn">Predecir</button>
+        <button id="clearBtn">Limpiar</button>
+    </div>
+    <div id="predictionResult"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
