@@ -4,7 +4,7 @@ import tensorflow as tf
 from PIL import Image
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../frontend', static_folder='../frontend/static')
 
 # Ruta a los modelos entrenados
 MODEL_DIR = os.path.join(os.path.dirname(__file__), '../models')
@@ -18,7 +18,7 @@ mlp_model = tf.keras.models.load_model(mlp_model_path)
 @app.route('/')
 def index():
     """Renderiza la página principal."""
-    return render_template('index.html', template_folder='../frontend')
+    return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
