@@ -35,5 +35,20 @@ def predict():
         image = Image.open(file).convert('L')  # Convertir a escala de grises
         image = image.resize((28, 28))  # Redimensionar a 28x28
         image_array = np.array(image) / 255.0  # Normalizar entre 0 y 1
+
+        # Prediccion de CNN (antes una expansion de dimensiones)
+        cnn_input = np.expand_dims(image_array, axis=(0, -1))
+        cnn_prediction = cnn_model.predict(cnn_input)
+        cnn_digit = np.argmax(cnn_prediction)
+
+        # Prediccion de MLP (antes un aplanamiento de dimensiones)
+        mlp_input = image_array.reshape(1, -1)
+        mlp_prediction = mlp_model.predict(mlp_input)
+        mlp_digit = np.argmax(mlp_prediction)
+
+        return jsonify({
+            'cnn_prediction': int(cnn_digit),
+            'mlp_prediction': int(mlp_digit)
+        })
     except Exception as e:
         return jsonify({'error': str(e)}), 500
