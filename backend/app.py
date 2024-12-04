@@ -29,3 +29,11 @@ def predict():
     file = request.files['file']
     if file.filename == '':
         return jsonify({'error': 'No file selected'}), 400
+    
+    try:
+        # Abrir la imagen
+        image = Image.open(file).convert('L')  # Convertir a escala de grises
+        image = image.resize((28, 28))  # Redimensionar a 28x28
+        image_array = np.array(image) / 255.0  # Normalizar entre 0 y 1
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
