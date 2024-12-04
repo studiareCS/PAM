@@ -18,7 +18,7 @@ mlp_model = tf.keras.models.load_model(mlp_model_path)
 @app.route('/')
 def index():
     """Renderiza la página principal."""
-    return render_template('index.html')
+    return render_template('index.html', template_folder='../frontend')
 
 @app.route('/predict', methods=['POST'])
 def predict():
