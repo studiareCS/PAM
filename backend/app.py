@@ -35,6 +35,7 @@ def predict():
         image = Image.open(file).convert('L')  # Convertir a escala de grises
         image = image.resize((28, 28))  # Redimensionar a 28x28
         image_array = np.array(image) / 255.0  # Normalizar entre 0 y 1
+        image_array = 1.0 - image_array # Invertir colores (0 para negro, 1 para blanco)
 
         # Prediccion de CNN (antes una expansion de dimensiones)
         cnn_input = np.expand_dims(image_array, axis=(0, -1))
