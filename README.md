@@ -95,5 +95,6 @@ Fully connected layer: 10 neuronas (Softmax)
 ## Resultados
 *Obtenidos con la configuración presentada anteriormente de cada modelo*
 
-Precisión del modelo MLP: 99.21%
-Precisión del modelo CNN: 99.85%
+**Precisión del modelo MLP:** 99.21%
+
+**Precisión del modelo CNN:** 99.85%
