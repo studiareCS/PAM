@@ -72,28 +72,28 @@ Para todo lo concerniente a las redes neuronales, el manejo de MNIST y pruebas, 
 ## Características de las redes neuronales
 Para ambos modelos se utiliza la función de costo "categorical cross entropy" y el optimizador "Adam".
 ### MLP
-Input layer: 
-Flatten layer: 
-84 unidades (una para el valor de cada pixel de la imagen 28x28)
-Hidden layers:
+#### Input layer
+Flatten layer: 84 unidades (una para el valor de cada pixel de la imagen 28x28)
+#### Hidden layers
 - Fully coneccted layer: 256 neuronas (ReLU)
 - Fully coneccted layer: 128 neuronas (ReLU)
 - Fully coneccted layer: 64 neuronas (ReLU)
-Output layer:
+#### Output layer
 Fully connected layer: 10 neuronas (Softmax)
 ### CNN
-Input layer:
+#### Input layer
 Layer que recibe las imagenes de 28x28 (1 canal por estar en escala de grises)
-Hidden layers:
+#### Hidden layers
 - Convolutional layer: 32 kernels de 3x3 (ReLU)
 - Max pooling layer: Kernel de 2x2
 - Convolutional layer: 64 kernels de 3x3 (ReLU)
 - Max pooling layer: Kernel de 2x2
 - Flatten layer (Aplana los valores de los pixeles de la imagen)
 - Fully connected layer: 128 neuronas (ReLU)
-Output layer:
+#### Output layer
 Fully connected layer: 10 neuronas (Softmax)
 ## Resultados
 *Obtenidos con la configuración presentada anteriormente de cada modelo*
+
 Precisión del modelo MLP: 99.21%
 Precisión del modelo CNN: 99.85%
