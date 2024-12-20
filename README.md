@@ -16,6 +16,7 @@ PAM/
 ├── ├── ├── styles.css              # Establece los estilos visuales de la página
 ├── ├── index.html                  # Estructura básica de la página web
 ├── notebooks/                      # Jupyter notebooks para experimentación
+├── ├── matrizConfusion.ipynb       # Notebook para manejar la matriz de confusion del MLP y CNN 
 ├── scripts/                        # Scripts para el manejo de datos, entrenamiento, etc.
 │   ├── data_pipeline.py            # Descarga y preprocesamiento de datos
 │   ├── train_models.py             # Entrenamiento de los modelos
