@@ -8,3 +8,6 @@ __pycache__/
 
 # Ignorar archivos h5
 *.h5
+
+# Ignorar imagenes
+*.png
