@@ -73,7 +73,7 @@ Para todo lo concerniente a las redes neuronales, el manejo de MNIST y pruebas, 
 Para ambos modelos se utiliza la función de costo "categorical cross entropy" y el optimizador "Adam".
 ### MLP
 #### Input layer
-Flatten layer: 84 unidades (una para el valor de cada pixel de la imagen 28x28)
+Flatten layer: 784 unidades (una para el valor de cada pixel de la imagen 28x28)
 #### Hidden layers
 - Fully coneccted layer: 256 neuronas (ReLU)
 - Fully coneccted layer: 128 neuronas (ReLU)
@@ -82,7 +82,7 @@ Flatten layer: 84 unidades (una para el valor de cada pixel de la imagen 28x28)
 Fully connected layer: 10 neuronas (Softmax)
 ### CNN
 #### Input layer
-Layer que recibe las imagenes de 28x28 (1 canal por estar en escala de grises)
+Layer que recibe las imagenes de 28x28 (solo 1 canal por estar en escala de grises)
 #### Hidden layers
 - Convolutional layer: 32 kernels de 3x3 (ReLU)
 - Max pooling layer: Kernel de 2x2
